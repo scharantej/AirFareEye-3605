@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Search</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<h1>Flight Search</h1>
+<form action="/" method="POST">
+<div class="form-group">
+<label for="origin">Origin</label>
+<input type="text" class="form-control" id="origin" name="origin" required>
+</div>
+<div class="form-group">
+<label for="destinations">Destinations</label>
+<select class="form-control" id="destinations" name="destinations" multiple required>
+<option value="Tokyo">Tokyo</option>
+<option value="Singapore">Singapore</option>
+<option value="Seoul">Seoul</option>
+<option value="Taipei">Taipei</option>
+</select>
+</div>
+<div class="form-group">
+<label for="departure_date">Departure Date</label>
+<input type="date" class="form-control" id="departure_date" name="departure_date" required>
+</div>
+<div class="form-group">
+<label for="return_date">Return Date</label>
+<input type="date" class="form-control" id="return_date" name="return_date" required>
+</div>
+<button type="submit" class="btn btn-primary">Search</button>
+</form>
+<hr>
+<div id="results"></div>
+</div>
+
+<script>
+$(function() {
+$('#results').load('/refresh');
+
+setInterval(function() {
+$('#results').load('/refresh');
+}, 60000);
+});
+</script>
+</body>
+</html>
+
